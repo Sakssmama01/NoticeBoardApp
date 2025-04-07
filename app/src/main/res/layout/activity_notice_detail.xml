@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,13 +9,15 @@
         android:id="@+id/tvNoticeTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Notice Title"
         android:textSize="24sp"
         android:textStyle="bold"
-        android:paddingBottom="8dp" />
+        android:paddingBottom="10dp" />
 
     <TextView
         android:id="@+id/tvNoticeDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:text="Notice Description"
         android:textSize="18sp" />
 </LinearLayout>
