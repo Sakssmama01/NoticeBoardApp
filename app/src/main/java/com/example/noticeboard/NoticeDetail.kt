@@ -3,6 +3,7 @@ package com.example.noticeboard
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.noticeboard.R
 
 class NoticeDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

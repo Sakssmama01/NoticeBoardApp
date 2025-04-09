@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "766182139489",
+    "project_id": "noticeboard-7778d",
+    "storage_bucket": "noticeboard-7778d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766182139489:android:602cd14c9233d4086b2c20",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ_D0QRpoVq4ixH98WLKJInpsVw6fZJ7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:766182139489:android:01455b6dd03291236b2c20",
+        "android_client_info": {
+          "package_name": "com.safehostel"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZ_D0QRpoVq4ixH98WLKJInpsVw6fZJ7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

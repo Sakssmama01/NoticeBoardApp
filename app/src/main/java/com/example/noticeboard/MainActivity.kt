@@ -1,35 +1,39 @@
 package com.example.noticeboard
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class MainActivity : AppCompatActivity(), AddNoticeDialog.NoticeDialogListener {
 
+class MainActivity : AppCompatActivity() {
+
+    private lateinit var recyclerView: RecyclerView
     private lateinit var noticeAdapter: NoticeAdapter
-    private val noticeList = mutableListOf<Notice>()
+    private val viewModel: NoticeViewModel by viewModels {
+        NoticeViewModelFactory((application as NoticeApp).repository)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
-        noticeAdapter = NoticeAdapter(noticeList)
+        noticeAdapter = NoticeAdapter()
         recyclerView.adapter = noticeAdapter
 
-        val fab = findViewById<FloatingActionButton>(R.id.fabAddNotice)
-        fab.setOnClickListener {
-            AddNoticeDialog().show(supportFragmentManager, "AddNoticeDialog")
-        }
-    }
+        viewModel.allNotices.observe(this, Observer { notices ->
+            notices?.let { noticeAdapter.submitList(it) }
+        })
 
-    override fun onNoticeAdded(title: String, description: String) {
-        val notice = Notice(title, description)
-        noticeList.add(notice)
-        noticeAdapter.notifyItemInserted(noticeList.size - 1)
+        findViewById<FloatingActionButton>(R.id.fabAdd).setOnClickListener {
+            AddNoticeDialog { title, description ->
+                viewModel.insert(Notice(title = title, description = description))
+            }.show(supportFragmentManager, "AddNoticeDialog")
+        }
     }
 }
