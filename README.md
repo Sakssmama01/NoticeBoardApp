@@ -18,7 +18,7 @@ NoticeBoard App is a real-time digital communication tool for universities and c
 ## 🖼️ App Screenshot
 
 ### 🏠 Home Page  
-![Home Page](https://github.com/Sakssmama01/HOSTEL-PASS/blob/main/WhatsApp%20Image%202025-04-11%20at%2015.53.41.jpeg?raw=true)
+![Home Screen](https://github.com/Sakssmama01/NoticeBoardApp/blob/main/WhatsApp%20Image%202025-04-11%20at%2015.53.42%20(2).jpeg?raw=true)
 
 ---
 
