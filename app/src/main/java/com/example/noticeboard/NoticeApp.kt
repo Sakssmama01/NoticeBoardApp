@@ -1,5 +1,6 @@
 package com.example.noticeboard
 
+import NoticeRepository
 import android.app.Application
 
 class NoticeApp : Application() {

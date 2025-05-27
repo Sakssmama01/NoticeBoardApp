@@ -8,12 +8,12 @@ plugins {
 
 android {
     namespace = "com.example.noticeboard"
-    compileSdk = 34
+    compileSdk = 35 // ✅ Updated from 34
 
     defaultConfig {
         applicationId = "com.example.noticeboard"
         minSdk = 21
-        targetSdk = 34
+        targetSdk = 35 // ✅ Updated from 34
         versionCode = 1
         versionName = "1.0"
 
@@ -46,8 +46,12 @@ dependencies {
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")
+    implementation("androidx.activity:activity-ktx:1.10.1") // ✅ Explicitly added since you're using it
     kapt("androidx.room:room-compiler:2.6.1")
     implementation("androidx.room:room-ktx:2.6.1")
+    implementation ("androidx.room:room-runtime:2.5.1")
+    kapt ("androidx.room:room-compiler:2.5.1")
+    implementation ("androidx.room:room-ktx:2.5.1")
 
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
@@ -60,13 +64,13 @@ dependencies {
     // Fragment
     implementation("androidx.fragment:fragment-ktx:1.6.2")
 
+    // Firebase
+    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-crashlytics")
+
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    implementation(platform("com.google.firebase:firebase-bom:33.12.0"))
-
-    implementation("com.google.firebase:firebase-analytics")
-    implementation("com.google.firebase:firebase-crashlytics")
 }

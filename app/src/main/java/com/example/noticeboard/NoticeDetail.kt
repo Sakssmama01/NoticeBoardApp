@@ -3,7 +3,6 @@ package com.example.noticeboard
 import android.os.Bundle
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.noticeboard.R
 
 class NoticeDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,6 +12,7 @@ class NoticeDetailActivity : AppCompatActivity() {
         val title = intent.getStringExtra("notice_title")
         val description = intent.getStringExtra("notice_description")
 
+        // Use correct IDs matching your XML layout
         findViewById<TextView>(R.id.tvNoticeTitle).text = title
         findViewById<TextView>(R.id.tvNoticeDescription).text = description
     }

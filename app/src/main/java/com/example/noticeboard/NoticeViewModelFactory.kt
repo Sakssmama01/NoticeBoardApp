@@ -1,5 +1,6 @@
 package com.example.noticeboard
 
+import NoticeRepository
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 

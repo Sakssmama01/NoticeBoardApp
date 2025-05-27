@@ -8,22 +8,26 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-
-class MainActivity : AppCompatActivity() {
+class CommonNoticeboardActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var noticeAdapter: NoticeAdapter
+
     private val viewModel: NoticeViewModel by viewModels {
         NoticeViewModelFactory((application as NoticeApp).repository)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_common_noticeboard)
 
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        noticeAdapter = NoticeAdapter()
+
+        // Pass delete lambda to adapter
+        noticeAdapter = NoticeAdapter { noticeToDelete ->
+            viewModel.delete(noticeToDelete)
+        }
         recyclerView.adapter = noticeAdapter
 
         viewModel.allNotices.observe(this, Observer { notices ->
